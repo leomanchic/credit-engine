@@ -1,0 +1,10 @@
+{
+  "basis": "Zero-rate identity P=1200000/12=100000; total and principal both 1200000; interest zero.",
+  "recommendation": "OFFERED",
+  "requested_assessment": {
+    "monthly_payment": "100000.00",
+    "last_payment": "100000.00",
+    "total_payment": "1200000.00",
+    "interest": "0.00"
+  }
+}

@@ -1,0 +1,96 @@
+# Сторонние компоненты credit_engine
+
+Инвентаризация выполнена 21 октября 2026 года по METADATA и файлам лицензий
+установленных distributions в локальном окружении `.venv`. Указаны фактически
+установленные версии, а не последние доступные выпуски. Ссылки на исходный код
+взяты из официальных Project-URL этих distributions.
+
+Версии для воспроизводимой установки перечислены также в файлах фиксации
+зависимостей проекта. Компоненты устанавливаются как отдельные Python-пакеты;
+их код не скопирован в исходный код credit_engine. Оригинальные авторские
+уведомления и полные тексты лицензий находятся в установленных пакетах и
+соответствующих каталогах `*.dist-info`.
+
+## Обязательные зависимости выполнения
+
+| Компонент | Версия | Лицензия | Назначение | Официальный исходный код |
+|---|---|---|---|---|
+| pydantic | 2.12.3 | MIT | DTO, валидация, сериализация, JSON Schema | https://github.com/pydantic/pydantic |
+| pydantic_core | 2.41.4 | MIT | Ядро валидации Pydantic | https://github.com/pydantic/pydantic-core |
+| annotated-types | 0.8.0 | MIT | Метаданные ограничений типов Pydantic | https://github.com/annotated-types/annotated-types |
+| typing_extensions | 4.16.0 | PSF-2.0 | Совместимые расширения типов Python | https://github.com/python/typing_extensions |
+| typing-inspection | 0.4.4 | MIT | Анализ аннотаций типов Pydantic | https://github.com/pydantic/typing-inspection |
+
+`pydantic` — прямая зависимость проекта. Остальные четыре компонента —
+транзитивные зависимости Pydantic в проверенном окружении.
+
+## Сборка и проверки
+
+| Компонент | Версия | Лицензия | Назначение | Официальный исходный код |
+|---|---|---|---|---|
+| build | 1.3.0 | MIT | Сборка wheel и sdist | https://github.com/pypa/build |
+| setuptools | 80.9.0 | MIT | Backend сборки Python-пакета | https://github.com/pypa/setuptools |
+| wheel | 0.45.1 | MIT | Формат и инструменты wheel | https://github.com/pypa/wheel |
+| pytest | 8.4.2 | MIT | Автоматические тесты | https://github.com/pytest-dev/pytest |
+| colorama | 0.4.6 | BSD-3-Clause | Поддержка терминала Windows в инструментах | https://github.com/tartley/colorama |
+| iniconfig | 2.3.1 | MIT | Чтение конфигурации pytest | https://github.com/pytest-dev/iniconfig |
+| packaging | 26.3 | Apache-2.0 OR BSD-2-Clause | Метаданные, версии и ограничения пакетов | https://github.com/pypa/packaging |
+| pluggy | 1.7.0 | MIT | Механизм расширений pytest | https://github.com/pytest-dev/pluggy |
+| Pygments | 2.21.0 | BSD-2-Clause | Подсветка диагностических сообщений pytest | https://github.com/pygments/pygments |
+| pyproject_hooks | 1.3.3 | MIT | Вызов интерфейсов backend сборки | https://github.com/pypa/pyproject-hooks |
+
+Эти компоненты не требуются для обычного вызова `evaluate`. В частности,
+pytest не является обязательной зависимостью установленной библиотеки.
+Colorama установлена в проверенном Windows-окружении по платформенным
+условиям зависимостей build и pytest.
+
+## Интерпретатор и установщик
+
+Проверенное окружение использует CPython 3.12.14 и pip 25.0.1.
+
+| Компонент | Версия | Лицензия | Официальный источник |
+|---|---|---|---|
+| CPython и стандартная библиотека | 3.12.14 | Python Software Foundation License Version 2; дополнительные уведомления поставки Python | https://github.com/python/cpython ; https://docs.python.org/3.12/license.html |
+| pip | 25.0.1 | MIT; дополнительные лицензии встроенных зависимостей | https://github.com/pypa/pip |
+
+Модули decimal, datetime, hashlib, json, argparse, pathlib и другие модули
+стандартной библиотеки поставляются с Python; отдельной runtime-зависимости
+для них нет.
+
+## Где сохранены оригинальные уведомления
+
+Основные лицензии доступны в `.venv/Lib/site-packages/`:
+
+- `pydantic-2.12.3.dist-info/licenses/LICENSE`;
+- `pydantic_core-2.41.4.dist-info/licenses/LICENSE`;
+- `typing_extensions-4.16.0.dist-info/licenses/LICENSE`;
+- `colorama-0.4.6.dist-info/licenses/LICENSE.txt`;
+- `wheel-0.45.1.dist-info/LICENSE.txt`;
+- `setuptools-80.9.0.dist-info/licenses/LICENSE`;
+- `pip-25.0.1.dist-info/LICENSE.txt`.
+
+У остальных distributions используются аналогичные файлы LICENSE внутри
+`*.dist-info` или его подкаталога `licenses`. Файл Colorama прочитан отдельно:
+Copyright (c) 2010 Jonathan Hartley; текст содержит три условия BSD, включая
+условие о недопустимости использования имён для продвижения без разрешения,
+что соответствует обозначению BSD-3-Clause в таблице.
+
+Инструменты setuptools, wheel и pip также содержат встроенные сторонние
+компоненты. Их оригинальные уведомления остаются частью поставки этих
+инструментов: например, `setuptools/_vendor/*/*.dist-info/LICENSE*`,
+`setuptools/config/NOTICE`, `setuptools/config/_validate_pyproject/NOTICE`
+и `wheel/vendored/packaging/LICENSE*`. Таблицы выше описывают установленные
+distributions проекта и не переименовывают лицензии встроенных компонентов.
+
+## Демонстрационные данные и интеграции
+
+Правила demo-assets-2, примеры F01–F17, данные клиентов, активов и результаты
+проверок синтетические. Они основаны на предоставленном техническом задании
+и не описывают внутреннюю политику конкретного банка.
+
+В поставке нет подключения к банковским системам, БКИ, государственным
+реестрам, платным API, OCR, LLM или обученным ML-моделям. Значения source_type
+MOCK, BANK_OPERATOR и NORMALIZER описывают контракт происхождения данных;
+они не подтверждают наличие реальной внешней интеграции. Пример адаптера
+показывает локальный вызов библиотеки, а доверенное получение проверок и
+транзакционное сохранение ревизий остаются обязанностью backend сайта.

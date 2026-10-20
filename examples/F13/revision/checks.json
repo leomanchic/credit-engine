@@ -1,0 +1,77 @@
+{
+  "application_id": "synthetic-app-001",
+  "revision": 2,
+  "company": {
+    "state": "COMPLETE",
+    "checked_on": "2026-10-21",
+    "valid_until": "2026-11-20",
+    "source_type": "MOCK",
+    "evidence_refs": [
+      "synthetic-trusted-check"
+    ],
+    "fixture_version": "demo-checks-1",
+    "payload": {
+      "is_active": true,
+      "registration_date": "2022-01-01"
+    }
+  },
+  "credit_history": {
+    "state": "COMPLETE",
+    "checked_on": "2026-10-21",
+    "valid_until": "2026-11-20",
+    "source_type": "MOCK",
+    "evidence_refs": [
+      "synthetic-trusted-check"
+    ],
+    "fixture_version": "demo-checks-1",
+    "payload": {
+      "has_history": true,
+      "max_closed_overdue_days": 0,
+      "active_overdue_days": 0,
+      "window_start": "2025-10-21",
+      "window_end": "2026-10-20"
+    }
+  },
+  "financials": {
+    "state": "COMPLETE",
+    "checked_on": "2026-10-21",
+    "valid_until": "2026-11-20",
+    "source_type": "MOCK",
+    "evidence_refs": [
+      "synthetic-trusted-check"
+    ],
+    "fixture_version": "demo-checks-1",
+    "payload": {
+      "consolidated_accounts_confirmed": true,
+      "expense_classification_confirmed": true
+    }
+  },
+  "debt": {
+    "state": "COMPLETE",
+    "checked_on": "2026-10-21",
+    "valid_until": "2026-11-20",
+    "source_type": "MOCK",
+    "evidence_refs": [
+      "synthetic-trusted-check"
+    ],
+    "fixture_version": "demo-checks-1",
+    "payload": {
+      "obligations_complete": true,
+      "service_pattern": "FLAT_OR_CONSERVATIVE_MAX"
+    }
+  },
+  "business_profile": {
+    "state": "COMPLETE",
+    "checked_on": "2026-10-21",
+    "valid_until": "2026-11-20",
+    "source_type": "MOCK",
+    "evidence_refs": [
+      "synthetic-trusted-check"
+    ],
+    "fixture_version": "demo-checks-1",
+    "payload": {
+      "cashflow_pattern": "REGULAR"
+    }
+  },
+  "asset_checks": []
+}

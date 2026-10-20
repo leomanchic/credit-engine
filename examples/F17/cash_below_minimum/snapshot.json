@@ -1,0 +1,148 @@
+{
+  "schema_version": "2.0",
+  "application_id": "synthetic-app-001",
+  "company_id": "synthetic-company-001",
+  "revision": 1,
+  "as_of_date": "2026-10-21",
+  "product_id": "EQUIPMENT",
+  "purpose": "EQUIPMENT_PURCHASE",
+  "financing_need": "2000000.00",
+  "requested_amount": "2000000.00",
+  "requested_term_months": 24,
+  "industry_code": "62.01",
+  "existing_monthly_debt": "40000.00",
+  "financial_periods": [
+    {
+      "month": "2025-10",
+      "operating_receipts": "420000.00",
+      "operating_payments": "350000.00",
+      "tax_payments": "30000.00",
+      "maintenance_capex": "20000.00",
+      "source_refs": [
+        "synthetic-statement-2025-10"
+      ]
+    },
+    {
+      "month": "2025-11",
+      "operating_receipts": "420000.00",
+      "operating_payments": "350000.00",
+      "tax_payments": "30000.00",
+      "maintenance_capex": "20000.00",
+      "source_refs": [
+        "synthetic-statement-2025-11"
+      ]
+    },
+    {
+      "month": "2025-12",
+      "operating_receipts": "420000.00",
+      "operating_payments": "350000.00",
+      "tax_payments": "30000.00",
+      "maintenance_capex": "20000.00",
+      "source_refs": [
+        "synthetic-statement-2025-12"
+      ]
+    },
+    {
+      "month": "2026-01",
+      "operating_receipts": "420000.00",
+      "operating_payments": "350000.00",
+      "tax_payments": "30000.00",
+      "maintenance_capex": "20000.00",
+      "source_refs": [
+        "synthetic-statement-2026-01"
+      ]
+    },
+    {
+      "month": "2026-02",
+      "operating_receipts": "420000.00",
+      "operating_payments": "350000.00",
+      "tax_payments": "30000.00",
+      "maintenance_capex": "20000.00",
+      "source_refs": [
+        "synthetic-statement-2026-02"
+      ]
+    },
+    {
+      "month": "2026-03",
+      "operating_receipts": "420000.00",
+      "operating_payments": "350000.00",
+      "tax_payments": "30000.00",
+      "maintenance_capex": "20000.00",
+      "source_refs": [
+        "synthetic-statement-2026-03"
+      ]
+    },
+    {
+      "month": "2026-04",
+      "operating_receipts": "420000.00",
+      "operating_payments": "350000.00",
+      "tax_payments": "30000.00",
+      "maintenance_capex": "20000.00",
+      "source_refs": [
+        "synthetic-statement-2026-04"
+      ]
+    },
+    {
+      "month": "2026-05",
+      "operating_receipts": "420000.00",
+      "operating_payments": "350000.00",
+      "tax_payments": "30000.00",
+      "maintenance_capex": "20000.00",
+      "source_refs": [
+        "synthetic-statement-2026-05"
+      ]
+    },
+    {
+      "month": "2026-06",
+      "operating_receipts": "420000.00",
+      "operating_payments": "350000.00",
+      "tax_payments": "30000.00",
+      "maintenance_capex": "20000.00",
+      "source_refs": [
+        "synthetic-statement-2026-06"
+      ]
+    },
+    {
+      "month": "2026-07",
+      "operating_receipts": "420000.00",
+      "operating_payments": "350000.00",
+      "tax_payments": "30000.00",
+      "maintenance_capex": "20000.00",
+      "source_refs": [
+        "synthetic-statement-2026-07"
+      ]
+    },
+    {
+      "month": "2026-08",
+      "operating_receipts": "420000.00",
+      "operating_payments": "350000.00",
+      "tax_payments": "30000.00",
+      "maintenance_capex": "20000.00",
+      "source_refs": [
+        "synthetic-statement-2026-08"
+      ]
+    },
+    {
+      "month": "2026-09",
+      "operating_receipts": "420000.00",
+      "operating_payments": "350000.00",
+      "tax_payments": "30000.00",
+      "maintenance_capex": "20000.00",
+      "source_refs": [
+        "synthetic-statement-2026-09"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "asset_id": "synthetic-asset-001",
+      "object_key": "IP_RIGHT:SYNTHETIC:001",
+      "asset_type": "IP_RIGHT",
+      "owner_id": "synthetic-company-001",
+      "declared_value": "20000000.00",
+      "source_refs": [
+        "synthetic-asset-document"
+      ]
+    }
+  ]
+}

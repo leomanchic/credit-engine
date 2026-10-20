@@ -1,0 +1,12 @@
+{
+  "basis": "Synthetic data; independently specified from specification sections 17 and 18.",
+  "recommendation": "MANUAL_REVIEW",
+  "reason_codes": [
+    "SHORT_OPERATING_HISTORY"
+  ],
+  "requested_fields_empty": true,
+  "offers_count": 0,
+  "requested_assessment": {
+    "score_total": null
+  }
+}

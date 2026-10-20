@@ -1,0 +1,11 @@
+{
+  "basis": "Synthetic data; independently specified from specification sections 17 and 18.",
+  "recommendation": "OFFERED",
+  "financial_summary": {
+    "D": "0.00"
+  },
+  "first_offer": {
+    "amount": "2000000.00",
+    "term_months": 24
+  }
+}

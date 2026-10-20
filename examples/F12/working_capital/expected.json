@@ -1,0 +1,27 @@
+{
+  "basis": "Synthetic data; independently specified from specification sections 17 and 18.",
+  "recommendation": "OFFERED",
+  "requested_assessment": {
+    "score_total": 75
+  },
+  "candidates_contains": [
+    {
+      "amount": "1760000.00",
+      "term_months": 24,
+      "score_total": 85,
+      "status": "AUTO_ELIGIBLE",
+      "monthly_payment": "93053.13",
+      "last_payment": "93053.16",
+      "total_payment": "2233275.15",
+      "dscr": "1.503159"
+    }
+  ],
+  "first_offer": {
+    "amount": "1760000.00",
+    "term_months": 24,
+    "score_total": 85
+  },
+  "reason_codes": [
+    "LOWER_AMOUNT_IMPROVES_SCORE"
+  ]
+}

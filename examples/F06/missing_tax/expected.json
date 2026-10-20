@@ -1,0 +1,11 @@
+{
+  "basis": "Synthetic data; independently specified from specification sections 17 and 18.",
+  "recommendation": "NEEDS_INFO",
+  "reason_codes": [
+    "FINANCIAL_VALUE_MISSING"
+  ],
+  "requested_fields_contain_text": [
+    "tax_payments"
+  ],
+  "offers_count": 0
+}

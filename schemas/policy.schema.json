@@ -1,0 +1,400 @@
+{
+  "$defs": {
+    "CollateralPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "allow_junior_lien": {
+          "title": "Allow Junior Lien",
+          "type": "boolean"
+        },
+        "manual_recovery_types": {
+          "items": {
+            "const": "IP_RIGHT",
+            "type": "string"
+          },
+          "title": "Manual Recovery Types",
+          "type": "array"
+        },
+        "market_haircuts": {
+          "items": {
+            "$ref": "#/$defs/MarketHaircut"
+          },
+          "title": "Market Haircuts",
+          "type": "array"
+        },
+        "max_valuation_age_days": {
+          "minimum": 0,
+          "title": "Max Valuation Age Days",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "market_haircuts",
+        "manual_recovery_types",
+        "max_valuation_age_days",
+        "allow_junior_lien"
+      ],
+      "title": "CollateralPolicy",
+      "type": "object"
+    },
+    "HistoryBand": {
+      "additionalProperties": false,
+      "properties": {
+        "max_days": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Max Days"
+        },
+        "points": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Points",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "max_days",
+        "points"
+      ],
+      "title": "HistoryBand",
+      "type": "object"
+    },
+    "MarketHaircut": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_type": {
+          "enum": [
+            "VEHICLE",
+            "EQUIPMENT",
+            "REAL_ESTATE"
+          ],
+          "title": "Asset Type",
+          "type": "string"
+        },
+        "haircut": {
+          "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+          "title": "Haircut",
+          "type": "string"
+        }
+      },
+      "required": [
+        "asset_type",
+        "haircut"
+      ],
+      "title": "MarketHaircut",
+      "type": "object"
+    },
+    "MonthBand": {
+      "additionalProperties": false,
+      "properties": {
+        "min_months": {
+          "minimum": 0,
+          "title": "Min Months",
+          "type": "integer"
+        },
+        "points": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Points",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "min_months",
+        "points"
+      ],
+      "title": "MonthBand",
+      "type": "object"
+    },
+    "PaymentBand": {
+      "additionalProperties": false,
+      "properties": {
+        "min_dscr": {
+          "anyOf": [
+            {
+              "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Min Dscr"
+        },
+        "points": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Points",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "min_dscr",
+        "points"
+      ],
+      "title": "PaymentBand",
+      "type": "object"
+    },
+    "ProductPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "amount_step": {
+          "pattern": "^(?!0\\.00$)(0|[1-9][0-9]{0,15})\\.[0-9]{2}$",
+          "title": "Amount Step",
+          "type": "string"
+        },
+        "annual_rate": {
+          "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+          "title": "Annual Rate",
+          "type": "string"
+        },
+        "auto_score_min": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Auto Score Min",
+          "type": "integer"
+        },
+        "collateral_required": {
+          "title": "Collateral Required",
+          "type": "boolean"
+        },
+        "coverage_ratio": {
+          "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+          "title": "Coverage Ratio",
+          "type": "string"
+        },
+        "max_amount": {
+          "pattern": "^(?!0\\.00$)(0|[1-9][0-9]{0,15})\\.[0-9]{2}$",
+          "title": "Max Amount",
+          "type": "string"
+        },
+        "max_offers": {
+          "maximum": 3,
+          "minimum": 1,
+          "title": "Max Offers",
+          "type": "integer"
+        },
+        "min_amount": {
+          "pattern": "^(?!0\\.00$)(0|[1-9][0-9]{0,15})\\.[0-9]{2}$",
+          "title": "Min Amount",
+          "type": "string"
+        },
+        "min_dscr": {
+          "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+          "title": "Min Dscr",
+          "type": "string"
+        },
+        "product_id": {
+          "enum": [
+            "WORKING_CAPITAL",
+            "EQUIPMENT"
+          ],
+          "title": "Product Id",
+          "type": "string"
+        },
+        "purpose": {
+          "enum": [
+            "WORKING_CAPITAL",
+            "EQUIPMENT_PURCHASE"
+          ],
+          "title": "Purpose",
+          "type": "string"
+        },
+        "terms_months": {
+          "items": {
+            "maximum": 120,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "minItems": 1,
+          "title": "Terms Months",
+          "type": "array"
+        }
+      },
+      "required": [
+        "product_id",
+        "purpose",
+        "min_amount",
+        "max_amount",
+        "terms_months",
+        "annual_rate",
+        "min_dscr",
+        "auto_score_min",
+        "collateral_required",
+        "coverage_ratio",
+        "amount_step",
+        "max_offers"
+      ],
+      "title": "ProductPolicy",
+      "type": "object"
+    },
+    "RoundingPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "dscr_places": {
+          "maximum": 12,
+          "minimum": 1,
+          "title": "Dscr Places",
+          "type": "integer"
+        },
+        "limit_mode": {
+          "const": "ROUND_FLOOR",
+          "title": "Limit Mode",
+          "type": "string"
+        },
+        "money_places": {
+          "const": 2,
+          "title": "Money Places",
+          "type": "integer"
+        },
+        "payment_mode": {
+          "const": "ROUND_HALF_UP",
+          "title": "Payment Mode",
+          "type": "string"
+        },
+        "precision": {
+          "maximum": 200,
+          "minimum": 34,
+          "title": "Precision",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "precision",
+        "money_places",
+        "dscr_places",
+        "payment_mode",
+        "limit_mode"
+      ],
+      "title": "RoundingPolicy",
+      "type": "object"
+    },
+    "ScoringPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "history_bands": {
+          "items": {
+            "$ref": "#/$defs/HistoryBand"
+          },
+          "minItems": 1,
+          "title": "History Bands",
+          "type": "array"
+        },
+        "history_no_history_points": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "History No History Points",
+          "type": "integer"
+        },
+        "minimum_history_months": {
+          "const": 12,
+          "title": "Minimum History Months",
+          "type": "integer"
+        },
+        "payment_bands": {
+          "items": {
+            "$ref": "#/$defs/PaymentBand"
+          },
+          "minItems": 2,
+          "title": "Payment Bands",
+          "type": "array"
+        },
+        "review_score_min": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Review Score Min",
+          "type": "integer"
+        },
+        "stability_bands": {
+          "items": {
+            "$ref": "#/$defs/MonthBand"
+          },
+          "minItems": 1,
+          "title": "Stability Bands",
+          "type": "array"
+        },
+        "tenure_bands": {
+          "items": {
+            "$ref": "#/$defs/MonthBand"
+          },
+          "minItems": 1,
+          "title": "Tenure Bands",
+          "type": "array"
+        }
+      },
+      "required": [
+        "payment_bands",
+        "history_no_history_points",
+        "history_bands",
+        "stability_bands",
+        "tenure_bands",
+        "review_score_min",
+        "minimum_history_months"
+      ],
+      "title": "ScoringPolicy",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "calculation_version": {
+      "const": "2.0.0",
+      "title": "Calculation Version",
+      "type": "string"
+    },
+    "collateral": {
+      "$ref": "#/$defs/CollateralPolicy"
+    },
+    "currency": {
+      "const": "RUB",
+      "title": "Currency",
+      "type": "string"
+    },
+    "policy_version": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Policy Version",
+      "type": "string"
+    },
+    "products": {
+      "items": {
+        "$ref": "#/$defs/ProductPolicy"
+      },
+      "maxItems": 2,
+      "minItems": 1,
+      "title": "Products",
+      "type": "array"
+    },
+    "rounding": {
+      "$ref": "#/$defs/RoundingPolicy"
+    },
+    "schema_version": {
+      "const": "2.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "scoring": {
+      "$ref": "#/$defs/ScoringPolicy"
+    }
+  },
+  "required": [
+    "schema_version",
+    "policy_version",
+    "calculation_version",
+    "currency",
+    "products",
+    "scoring",
+    "collateral",
+    "rounding"
+  ],
+  "title": "PolicyConfig",
+  "type": "object"
+}

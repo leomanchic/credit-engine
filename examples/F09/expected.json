@@ -1,0 +1,9 @@
+{
+  "basis": "Synthetic data; independently specified from specification sections 17 and 18.",
+  "recommendation": "DECLINED",
+  "reason_codes": [
+    "COMPANY_INACTIVE"
+  ],
+  "requested_fields_empty": true,
+  "offers_count": 0
+}

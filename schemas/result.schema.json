@@ -1,0 +1,817 @@
+{
+  "$defs": {
+    "AssetResult": {
+      "additionalProperties": false,
+      "properties": {
+        "accepted_value": {
+          "anyOf": [
+            {
+              "pattern": "^-?(0|[1-9][0-9]*)\\.[0-9]{2}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Accepted Value"
+        },
+        "asset_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "asset_type": {
+          "$ref": "#/$defs/AssetType"
+        },
+        "collateral_applicable": {
+          "default": false,
+          "title": "Collateral Applicable",
+          "type": "boolean"
+        },
+        "eligible": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Eligible"
+        },
+        "haircut": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Haircut"
+        },
+        "manual_decision_ref": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Manual Decision Ref"
+        },
+        "object_key": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Object Key",
+          "type": "string"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "required_route": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Recommendation"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "source_refs": {
+          "default": [],
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Source Refs",
+          "type": "array"
+        },
+        "source_type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/SourceType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "status": {
+          "enum": [
+            "ACCEPTED",
+            "INELIGIBLE",
+            "UNKNOWN",
+            "REVIEW"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "valuation_method": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ValuationMethod"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "asset_id",
+        "object_key",
+        "asset_type",
+        "status"
+      ],
+      "title": "AssetResult",
+      "type": "object"
+    },
+    "AssetType": {
+      "enum": [
+        "VEHICLE",
+        "EQUIPMENT",
+        "REAL_ESTATE",
+        "IP_RIGHT",
+        "OTHER"
+      ],
+      "title": "AssetType",
+      "type": "string"
+    },
+    "Candidate": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "pattern": "^-?(0|[1-9][0-9]*)\\.[0-9]{2}$",
+          "title": "Amount",
+          "type": "string"
+        },
+        "annual_rate": {
+          "title": "Annual Rate",
+          "type": "string"
+        },
+        "candidate_key": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Candidate Key",
+          "type": "string"
+        },
+        "cash_limit": {
+          "anyOf": [
+            {
+              "pattern": "^-?(0|[1-9][0-9]*)\\.[0-9]{2}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Cash Limit"
+        },
+        "collateral_applicable": {
+          "default": false,
+          "title": "Collateral Applicable",
+          "type": "boolean"
+        },
+        "collateral_limit": {
+          "anyOf": [
+            {
+              "pattern": "^-?(0|[1-9][0-9]*)\\.[0-9]{2}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Collateral Limit"
+        },
+        "dscr": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Dscr"
+        },
+        "funding_gap": {
+          "anyOf": [
+            {
+              "pattern": "^-?(0|[1-9][0-9]*)\\.[0-9]{2}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Funding Gap"
+        },
+        "interest": {
+          "anyOf": [
+            {
+              "pattern": "^-?(0|[1-9][0-9]*)\\.[0-9]{2}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Interest"
+        },
+        "last_payment": {
+          "anyOf": [
+            {
+              "pattern": "^-?(0|[1-9][0-9]*)\\.[0-9]{2}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Last Payment"
+        },
+        "limiting_factors": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limiting Factors",
+          "type": "array"
+        },
+        "monthly_payment": {
+          "anyOf": [
+            {
+              "pattern": "^-?(0|[1-9][0-9]*)\\.[0-9]{2}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Monthly Payment"
+        },
+        "product_id": {
+          "enum": [
+            "WORKING_CAPITAL",
+            "EQUIPMENT"
+          ],
+          "title": "Product Id",
+          "type": "string"
+        },
+        "reason_codes": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "score_components": {
+          "$ref": "#/$defs/ScoreComponents"
+        },
+        "score_total": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Score Total"
+        },
+        "status": {
+          "enum": [
+            "AUTO_ELIGIBLE",
+            "REVIEW",
+            "REJECTED",
+            "NOT_EVALUATED"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "term_months": {
+          "title": "Term Months",
+          "type": "integer"
+        },
+        "total_payment": {
+          "anyOf": [
+            {
+              "pattern": "^-?(0|[1-9][0-9]*)\\.[0-9]{2}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Total Payment"
+        }
+      },
+      "required": [
+        "candidate_key",
+        "product_id",
+        "amount",
+        "term_months",
+        "annual_rate",
+        "status"
+      ],
+      "title": "Candidate",
+      "type": "object"
+    },
+    "FinancialSummary": {
+      "additionalProperties": false,
+      "properties": {
+        "C": {
+          "anyOf": [
+            {
+              "pattern": "^-?(0|[1-9][0-9]*)\\.[0-9]{2}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "C"
+        },
+        "C_12": {
+          "anyOf": [
+            {
+              "pattern": "^-?(0|[1-9][0-9]*)\\.[0-9]{2}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "C 12"
+        },
+        "C_3": {
+          "anyOf": [
+            {
+              "pattern": "^-?(0|[1-9][0-9]*)\\.[0-9]{2}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "C 3"
+        },
+        "D": {
+          "anyOf": [
+            {
+              "pattern": "^-?(0|[1-9][0-9]*)\\.[0-9]{2}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "D"
+        },
+        "complete": {
+          "default": false,
+          "title": "Complete",
+          "type": "boolean"
+        },
+        "period_end": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Period End"
+        },
+        "period_start": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Period Start"
+        },
+        "positive_months": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Positive Months"
+        }
+      },
+      "title": "FinancialSummary",
+      "type": "object"
+    },
+    "NextAction": {
+      "additionalProperties": false,
+      "properties": {
+        "audience": {
+          "enum": [
+            "CLIENT",
+            "BANK"
+          ],
+          "title": "Audience",
+          "type": "string"
+        },
+        "code": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Code",
+          "type": "string"
+        },
+        "fields": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Fields",
+          "type": "array"
+        },
+        "message_ru": {
+          "title": "Message Ru",
+          "type": "string"
+        },
+        "subject_id": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Subject Id"
+        }
+      },
+      "required": [
+        "code",
+        "audience",
+        "message_ru"
+      ],
+      "title": "NextAction",
+      "type": "object"
+    },
+    "Reason": {
+      "additionalProperties": false,
+      "properties": {
+        "audience": {
+          "enum": [
+            "CLIENT",
+            "BANK"
+          ],
+          "title": "Audience",
+          "type": "string"
+        },
+        "code": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Code",
+          "type": "string"
+        },
+        "message_ru": {
+          "title": "Message Ru",
+          "type": "string"
+        },
+        "next_action": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Next Action"
+        },
+        "params": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": "Params",
+          "type": "object"
+        },
+        "scope": {
+          "enum": [
+            "APPLICATION",
+            "CANDIDATE",
+            "ASSET",
+            "CHECK"
+          ],
+          "title": "Scope",
+          "type": "string"
+        },
+        "source_refs": {
+          "default": [],
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Source Refs",
+          "type": "array"
+        },
+        "subject_id": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Subject Id"
+        }
+      },
+      "required": [
+        "code",
+        "audience",
+        "scope",
+        "message_ru"
+      ],
+      "title": "Reason",
+      "type": "object"
+    },
+    "Recommendation": {
+      "enum": [
+        "OFFERED",
+        "NEEDS_INFO",
+        "WAITING_CHECKS",
+        "MANUAL_REVIEW",
+        "DECLINED"
+      ],
+      "title": "Recommendation",
+      "type": "string"
+    },
+    "ScoreComponents": {
+      "additionalProperties": false,
+      "properties": {
+        "base_score": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Base Score"
+        },
+        "history": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "History"
+        },
+        "payment": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Payment"
+        },
+        "stability": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Stability"
+        },
+        "tenure": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Tenure"
+        }
+      },
+      "title": "ScoreComponents",
+      "type": "object"
+    },
+    "SourceType": {
+      "enum": [
+        "MOCK",
+        "BANK_OPERATOR",
+        "NORMALIZER"
+      ],
+      "title": "SourceType",
+      "type": "string"
+    },
+    "ValuationMethod": {
+      "enum": [
+        "MARKET_VALUE",
+        "MANUAL_RECOVERY"
+      ],
+      "title": "ValuationMethod",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "application_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Application Id",
+      "type": "string"
+    },
+    "as_of_date": {
+      "format": "date",
+      "title": "As Of Date",
+      "type": "string"
+    },
+    "asset_results": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/AssetResult"
+      },
+      "title": "Asset Results",
+      "type": "array"
+    },
+    "calculation_version": {
+      "default": "2.0.0",
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Calculation Version",
+      "type": "string"
+    },
+    "candidates": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Candidate"
+      },
+      "title": "Candidates",
+      "type": "array"
+    },
+    "financial_summary": {
+      "$ref": "#/$defs/FinancialSummary"
+    },
+    "input_fingerprint": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Input Fingerprint",
+      "type": "string"
+    },
+    "next_actions": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/NextAction"
+      },
+      "title": "Next Actions",
+      "type": "array"
+    },
+    "offers": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Candidate"
+      },
+      "title": "Offers",
+      "type": "array"
+    },
+    "policy_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Policy Hash",
+      "type": "string"
+    },
+    "policy_version": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Policy Version",
+      "type": "string"
+    },
+    "reasons": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Reason"
+      },
+      "title": "Reasons",
+      "type": "array"
+    },
+    "recommendation": {
+      "$ref": "#/$defs/Recommendation"
+    },
+    "requested_assessment": {
+      "$ref": "#/$defs/Candidate"
+    },
+    "requested_fields": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Requested Fields",
+      "type": "array"
+    },
+    "revision": {
+      "title": "Revision",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "2.0",
+      "default": "2.0",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "application_id",
+    "revision",
+    "as_of_date",
+    "policy_version",
+    "policy_hash",
+    "input_fingerprint",
+    "recommendation",
+    "financial_summary",
+    "requested_assessment"
+  ],
+  "title": "EvaluationResult",
+  "type": "object"
+}

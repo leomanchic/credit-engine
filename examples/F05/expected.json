@@ -1,0 +1,25 @@
+{
+  "basis": "Synthetic data; independently specified from specification sections 17 and 18.",
+  "recommendation": "OFFERED",
+  "first_offer": {
+    "amount": "900000.00",
+    "term_months": 12
+  },
+  "candidates_contains": [
+    {
+      "amount": "900000.00",
+      "term_months": 24,
+      "monthly_payment": "47583.99",
+      "last_payment": "47583.93",
+      "total_payment": "1142015.70",
+      "funding_gap": "1100000.00"
+    }
+  ],
+  "max_offer_amount": "900000.00",
+  "asset_results_contains": [
+    {
+      "asset_id": "synthetic-asset-001",
+      "accepted_value": "900000.00"
+    }
+  ]
+}

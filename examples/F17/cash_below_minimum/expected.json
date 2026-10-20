@@ -1,0 +1,9 @@
+{
+  "basis": "C/k-D=20000/1.30-40000<0. Payment capacity zero at all terms; extra collateral cannot alter it.",
+  "recommendation": "DECLINED",
+  "reason_codes": [
+    "CASHFLOW_BELOW_PRODUCT_MIN"
+  ],
+  "requested_fields_empty": true,
+  "offers_count": 0
+}

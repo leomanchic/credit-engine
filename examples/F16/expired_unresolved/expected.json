@@ -1,0 +1,8 @@
+{
+  "basis": "Synthetic data; independently specified from specification sections 17 and 18.",
+  "recommendation": "WAITING_CHECKS",
+  "reason_codes": [
+    "CHECK_EXPIRED"
+  ],
+  "offers_count": 0
+}

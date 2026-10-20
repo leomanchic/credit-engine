@@ -1,0 +1,11 @@
+{
+  "basis": "Synthetic data; independently specified from specification sections 17 and 18.",
+  "recommendation": "DECLINED",
+  "financial_summary": {
+    "C": "0.00"
+  },
+  "reason_codes": [
+    "CASHFLOW_BELOW_PRODUCT_MIN"
+  ],
+  "offers_count": 0
+}

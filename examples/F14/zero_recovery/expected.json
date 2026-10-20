@@ -1,0 +1,14 @@
+{
+  "basis": "Synthetic data; independently specified from specification sections 17 and 18.",
+  "recommendation": "DECLINED",
+  "reason_codes": [
+    "COLLATERAL_INSUFFICIENT"
+  ],
+  "offers_count": 0,
+  "asset_results_contains": [
+    {
+      "asset_id": "synthetic-asset-001",
+      "accepted_value": "0.00"
+    }
+  ]
+}

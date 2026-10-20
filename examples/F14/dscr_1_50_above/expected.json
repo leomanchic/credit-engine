@@ -1,0 +1,9 @@
+{
+  "basis": "Independent zero-rate identity: P=1200000/12=100000; D+P=140000. C=210000.01. Compare exact products with threshold 1.50.",
+  "recommendation": "OFFERED",
+  "requested_assessment": {
+    "monthly_payment": "100000.00",
+    "score_total": 100,
+    "status": "AUTO_ELIGIBLE"
+  }
+}

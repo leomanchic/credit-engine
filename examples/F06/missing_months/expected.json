@@ -1,0 +1,14 @@
+{
+  "basis": "Synthetic data; independently specified from specification sections 17 and 18.",
+  "recommendation": "NEEDS_INFO",
+  "reason_codes": [
+    "FINANCIAL_PERIOD_MISSING"
+  ],
+  "requested_fields_contain_text": [
+    "2025-10",
+    "2025-11",
+    "2025-12",
+    "2026-01"
+  ],
+  "offers_count": 0
+}

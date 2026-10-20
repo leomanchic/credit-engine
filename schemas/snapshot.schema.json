@@ -1,0 +1,269 @@
+{
+  "$defs": {
+    "AssetType": {
+      "enum": [
+        "VEHICLE",
+        "EQUIPMENT",
+        "REAL_ESTATE",
+        "IP_RIGHT",
+        "OTHER"
+      ],
+      "title": "AssetType",
+      "type": "string"
+    },
+    "DeclaredAsset": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "asset_type": {
+          "$ref": "#/$defs/AssetType"
+        },
+        "declared_value": {
+          "anyOf": [
+            {
+              "pattern": "^(?:-0\\.00|(0|[1-9][0-9]{0,15})\\.[0-9]{2})$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Declared Value"
+        },
+        "object_key": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Object Key",
+          "type": "string"
+        },
+        "owner_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Owner Id",
+          "type": "string"
+        },
+        "source_refs": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Source Refs",
+          "type": "array"
+        }
+      },
+      "required": [
+        "asset_id",
+        "object_key",
+        "asset_type",
+        "owner_id",
+        "declared_value",
+        "source_refs"
+      ],
+      "title": "DeclaredAsset",
+      "type": "object"
+    },
+    "FinancialPeriod": {
+      "additionalProperties": false,
+      "properties": {
+        "maintenance_capex": {
+          "anyOf": [
+            {
+              "pattern": "^(?:-0\\.00|(0|[1-9][0-9]{0,15})\\.[0-9]{2})$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Maintenance Capex"
+        },
+        "month": {
+          "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])$",
+          "title": "Month",
+          "type": "string"
+        },
+        "operating_payments": {
+          "anyOf": [
+            {
+              "pattern": "^(?:-0\\.00|(0|[1-9][0-9]{0,15})\\.[0-9]{2})$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Operating Payments"
+        },
+        "operating_receipts": {
+          "anyOf": [
+            {
+              "pattern": "^(?:-0\\.00|(0|[1-9][0-9]{0,15})\\.[0-9]{2})$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Operating Receipts"
+        },
+        "source_refs": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Source Refs",
+          "type": "array"
+        },
+        "tax_payments": {
+          "anyOf": [
+            {
+              "pattern": "^(?:-0\\.00|(0|[1-9][0-9]{0,15})\\.[0-9]{2})$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Tax Payments"
+        }
+      },
+      "required": [
+        "month",
+        "operating_receipts",
+        "operating_payments",
+        "tax_payments",
+        "maintenance_capex",
+        "source_refs"
+      ],
+      "title": "FinancialPeriod",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "application_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Application Id",
+      "type": "string"
+    },
+    "as_of_date": {
+      "format": "date",
+      "title": "As Of Date",
+      "type": "string"
+    },
+    "assets": {
+      "items": {
+        "$ref": "#/$defs/DeclaredAsset"
+      },
+      "title": "Assets",
+      "type": "array"
+    },
+    "company_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Company Id",
+      "type": "string"
+    },
+    "existing_monthly_debt": {
+      "anyOf": [
+        {
+          "pattern": "^(?:-0\\.00|(0|[1-9][0-9]{0,15})\\.[0-9]{2})$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Existing Monthly Debt"
+    },
+    "financial_periods": {
+      "items": {
+        "$ref": "#/$defs/FinancialPeriod"
+      },
+      "maxItems": 12,
+      "title": "Financial Periods",
+      "type": "array"
+    },
+    "financing_need": {
+      "pattern": "^(?!0\\.00$)(0|[1-9][0-9]{0,15})\\.[0-9]{2}$",
+      "title": "Financing Need",
+      "type": "string"
+    },
+    "industry_code": {
+      "anyOf": [
+        {
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Industry Code"
+    },
+    "product_id": {
+      "enum": [
+        "WORKING_CAPITAL",
+        "EQUIPMENT"
+      ],
+      "title": "Product Id",
+      "type": "string"
+    },
+    "purpose": {
+      "enum": [
+        "WORKING_CAPITAL",
+        "EQUIPMENT_PURCHASE"
+      ],
+      "title": "Purpose",
+      "type": "string"
+    },
+    "requested_amount": {
+      "pattern": "^(?!0\\.00$)(0|[1-9][0-9]{0,15})\\.[0-9]{2}$",
+      "title": "Requested Amount",
+      "type": "string"
+    },
+    "requested_term_months": {
+      "exclusiveMinimum": 0,
+      "title": "Requested Term Months",
+      "type": "integer"
+    },
+    "revision": {
+      "minimum": 1,
+      "title": "Revision",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "2.0",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "application_id",
+    "company_id",
+    "revision",
+    "as_of_date",
+    "product_id",
+    "purpose",
+    "financing_need",
+    "requested_amount",
+    "requested_term_months",
+    "existing_monthly_debt",
+    "financial_periods",
+    "assets"
+  ],
+  "title": "ApplicationSnapshot",
+  "type": "object"
+}

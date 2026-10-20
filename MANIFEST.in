@@ -1,0 +1,8 @@
+include README.md MODEL_CARD.md THIRD_PARTY_NOTICES requirements.lock .python-version
+include credit_engine_spec.docx
+recursive-include policies *.json
+recursive-include schemas *.json
+recursive-include examples *.json *.py
+recursive-include tests *.py
+recursive-include scripts *.py
+recursive-include docs *.md *.txt *.py

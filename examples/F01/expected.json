@@ -1,0 +1,24 @@
+{
+  "basis": "Synthetic data; independently specified from specification sections 17 and 18.",
+  "recommendation": "OFFERED",
+  "financial_summary": {
+    "C_12": "200000.00",
+    "C_3": "200000.00",
+    "C": "200000.00",
+    "D": "40000.00",
+    "positive_months": 12
+  },
+  "requested_assessment": {
+    "score_total": 90
+  },
+  "first_offer": {
+    "amount": "2000000.00",
+    "term_months": 24,
+    "monthly_payment": "105742.19",
+    "last_payment": "105742.30",
+    "total_payment": "2537812.67",
+    "interest": "537812.67",
+    "funding_gap": "0.00",
+    "score_total": 90
+  }
+}

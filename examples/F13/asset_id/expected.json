@@ -1,0 +1,5 @@
+{
+  "basis": "Synthetic data; independently specified from specification sections 17 and 18.",
+  "error": "InputValidationError",
+  "error_path_contains": "asset_id"
+}

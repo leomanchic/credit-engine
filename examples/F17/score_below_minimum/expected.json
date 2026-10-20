@@ -1,0 +1,9 @@
+{
+  "basis": "Six positive months => stability 0; closed overdue 31 => history 0; 18 full months => tenure 5. Even maximum payment points 40 yield only 45.",
+  "recommendation": "DECLINED",
+  "reason_codes": [
+    "SCORE_BELOW_MIN"
+  ],
+  "requested_fields_empty": true,
+  "offers_count": 0
+}

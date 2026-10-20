@@ -1,0 +1,16 @@
+{
+  "basis": "Synthetic data; independently specified from specification sections 17 and 18.",
+  "recommendation": "OFFERED",
+  "first_offer": {
+    "amount": "2000000.00",
+    "term_months": 24,
+    "score_total": 90
+  },
+  "asset_results_contains": [
+    {
+      "asset_id": "synthetic-asset-001",
+      "accepted_value": "2400000.00",
+      "valuation_method": "MANUAL_RECOVERY"
+    }
+  ]
+}

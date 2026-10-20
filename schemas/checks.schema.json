@@ -1,0 +1,820 @@
+{
+  "$defs": {
+    "AssetCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "checked_on": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Checked On"
+        },
+        "evidence_refs": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "fixture_version": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fixture Version"
+        },
+        "payload": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AssetPayload"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "source_type": {
+          "$ref": "#/$defs/SourceType"
+        },
+        "state": {
+          "$ref": "#/$defs/CheckState"
+        },
+        "valid_until": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Valid Until"
+        }
+      },
+      "required": [
+        "state",
+        "source_type",
+        "evidence_refs",
+        "asset_id"
+      ],
+      "title": "AssetCheck",
+      "type": "object"
+    },
+    "AssetPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "approval_date": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Approval Date"
+        },
+        "assessed_value": {
+          "anyOf": [
+            {
+              "pattern": "^(?:-0\\.00|(0|[1-9][0-9]{0,15})\\.[0-9]{2})$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Assessed Value"
+        },
+        "exclusive_allocation": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Exclusive Allocation"
+        },
+        "liquidation_costs": {
+          "anyOf": [
+            {
+              "pattern": "^(?:-0\\.00|(0|[1-9][0-9]{0,15})\\.[0-9]{2})$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Liquidation Costs"
+        },
+        "manual_decision_ref": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Manual Decision Ref"
+        },
+        "manual_recovery_value": {
+          "anyOf": [
+            {
+              "pattern": "^(?:-0\\.00|(0|[1-9][0-9]{0,15})\\.[0-9]{2})$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Manual Recovery Value"
+        },
+        "ownership_confirmed": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ownership Confirmed"
+        },
+        "pledge_eligible": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pledge Eligible"
+        },
+        "senior_claims": {
+          "anyOf": [
+            {
+              "pattern": "^(?:-0\\.00|(0|[1-9][0-9]{0,15})\\.[0-9]{2})$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Senior Claims"
+        },
+        "valuation_date": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Valuation Date"
+        },
+        "valuation_method": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ValuationMethod"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "title": "AssetPayload",
+      "type": "object"
+    },
+    "BusinessProfileCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "checked_on": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Checked On"
+        },
+        "evidence_refs": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "fixture_version": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fixture Version"
+        },
+        "payload": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/BusinessProfilePayload"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "source_type": {
+          "$ref": "#/$defs/SourceType"
+        },
+        "state": {
+          "$ref": "#/$defs/CheckState"
+        },
+        "valid_until": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Valid Until"
+        }
+      },
+      "required": [
+        "state",
+        "source_type",
+        "evidence_refs"
+      ],
+      "title": "BusinessProfileCheck",
+      "type": "object"
+    },
+    "BusinessProfilePayload": {
+      "additionalProperties": false,
+      "properties": {
+        "cashflow_pattern": {
+          "enum": [
+            "REGULAR",
+            "SEASONAL"
+          ],
+          "title": "Cashflow Pattern",
+          "type": "string"
+        }
+      },
+      "required": [
+        "cashflow_pattern"
+      ],
+      "title": "BusinessProfilePayload",
+      "type": "object"
+    },
+    "CheckState": {
+      "enum": [
+        "COMPLETE",
+        "MISSING",
+        "PENDING",
+        "ERROR",
+        "UNRESOLVED"
+      ],
+      "title": "CheckState",
+      "type": "string"
+    },
+    "CompanyCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "checked_on": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Checked On"
+        },
+        "evidence_refs": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "fixture_version": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fixture Version"
+        },
+        "payload": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CompanyPayload"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "source_type": {
+          "$ref": "#/$defs/SourceType"
+        },
+        "state": {
+          "$ref": "#/$defs/CheckState"
+        },
+        "valid_until": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Valid Until"
+        }
+      },
+      "required": [
+        "state",
+        "source_type",
+        "evidence_refs"
+      ],
+      "title": "CompanyCheck",
+      "type": "object"
+    },
+    "CompanyPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "is_active": {
+          "title": "Is Active",
+          "type": "boolean"
+        },
+        "registration_date": {
+          "format": "date",
+          "title": "Registration Date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "is_active",
+        "registration_date"
+      ],
+      "title": "CompanyPayload",
+      "type": "object"
+    },
+    "CreditHistoryCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "checked_on": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Checked On"
+        },
+        "evidence_refs": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "fixture_version": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fixture Version"
+        },
+        "payload": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CreditHistoryPayload"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "source_type": {
+          "$ref": "#/$defs/SourceType"
+        },
+        "state": {
+          "$ref": "#/$defs/CheckState"
+        },
+        "valid_until": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Valid Until"
+        }
+      },
+      "required": [
+        "state",
+        "source_type",
+        "evidence_refs"
+      ],
+      "title": "CreditHistoryCheck",
+      "type": "object"
+    },
+    "CreditHistoryPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "active_overdue_days": {
+          "minimum": 0,
+          "title": "Active Overdue Days",
+          "type": "integer"
+        },
+        "has_history": {
+          "title": "Has History",
+          "type": "boolean"
+        },
+        "max_closed_overdue_days": {
+          "minimum": 0,
+          "title": "Max Closed Overdue Days",
+          "type": "integer"
+        },
+        "window_end": {
+          "format": "date",
+          "title": "Window End",
+          "type": "string"
+        },
+        "window_start": {
+          "format": "date",
+          "title": "Window Start",
+          "type": "string"
+        }
+      },
+      "required": [
+        "has_history",
+        "max_closed_overdue_days",
+        "active_overdue_days",
+        "window_start",
+        "window_end"
+      ],
+      "title": "CreditHistoryPayload",
+      "type": "object"
+    },
+    "DebtCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "checked_on": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Checked On"
+        },
+        "evidence_refs": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "fixture_version": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fixture Version"
+        },
+        "payload": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/DebtPayload"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "source_type": {
+          "$ref": "#/$defs/SourceType"
+        },
+        "state": {
+          "$ref": "#/$defs/CheckState"
+        },
+        "valid_until": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Valid Until"
+        }
+      },
+      "required": [
+        "state",
+        "source_type",
+        "evidence_refs"
+      ],
+      "title": "DebtCheck",
+      "type": "object"
+    },
+    "DebtPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "obligations_complete": {
+          "title": "Obligations Complete",
+          "type": "boolean"
+        },
+        "service_pattern": {
+          "enum": [
+            "FLAT_OR_CONSERVATIVE_MAX",
+            "IRREGULAR"
+          ],
+          "title": "Service Pattern",
+          "type": "string"
+        }
+      },
+      "required": [
+        "obligations_complete",
+        "service_pattern"
+      ],
+      "title": "DebtPayload",
+      "type": "object"
+    },
+    "FinancialsCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "checked_on": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Checked On"
+        },
+        "evidence_refs": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "fixture_version": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fixture Version"
+        },
+        "payload": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/FinancialsPayload"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "source_type": {
+          "$ref": "#/$defs/SourceType"
+        },
+        "state": {
+          "$ref": "#/$defs/CheckState"
+        },
+        "valid_until": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Valid Until"
+        }
+      },
+      "required": [
+        "state",
+        "source_type",
+        "evidence_refs"
+      ],
+      "title": "FinancialsCheck",
+      "type": "object"
+    },
+    "FinancialsPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "consolidated_accounts_confirmed": {
+          "title": "Consolidated Accounts Confirmed",
+          "type": "boolean"
+        },
+        "expense_classification_confirmed": {
+          "title": "Expense Classification Confirmed",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "consolidated_accounts_confirmed",
+        "expense_classification_confirmed"
+      ],
+      "title": "FinancialsPayload",
+      "type": "object"
+    },
+    "SourceType": {
+      "enum": [
+        "MOCK",
+        "BANK_OPERATOR",
+        "NORMALIZER"
+      ],
+      "title": "SourceType",
+      "type": "string"
+    },
+    "ValuationMethod": {
+      "enum": [
+        "MARKET_VALUE",
+        "MANUAL_RECOVERY"
+      ],
+      "title": "ValuationMethod",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "application_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Application Id",
+      "type": "string"
+    },
+    "asset_checks": {
+      "items": {
+        "$ref": "#/$defs/AssetCheck"
+      },
+      "title": "Asset Checks",
+      "type": "array"
+    },
+    "business_profile": {
+      "$ref": "#/$defs/BusinessProfileCheck"
+    },
+    "company": {
+      "$ref": "#/$defs/CompanyCheck"
+    },
+    "credit_history": {
+      "$ref": "#/$defs/CreditHistoryCheck"
+    },
+    "debt": {
+      "$ref": "#/$defs/DebtCheck"
+    },
+    "financials": {
+      "$ref": "#/$defs/FinancialsCheck"
+    },
+    "revision": {
+      "minimum": 1,
+      "title": "Revision",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "application_id",
+    "revision",
+    "company",
+    "credit_history",
+    "financials",
+    "debt",
+    "business_profile",
+    "asset_checks"
+  ],
+  "title": "NormalizedChecks",
+  "type": "object"
+}

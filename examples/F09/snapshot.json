@@ -1,0 +1,16 @@
+{
+  "schema_version": "2.0",
+  "application_id": "synthetic-app-001",
+  "company_id": "synthetic-company-001",
+  "revision": 1,
+  "as_of_date": "2026-10-21",
+  "product_id": "WORKING_CAPITAL",
+  "purpose": "WORKING_CAPITAL",
+  "financing_need": "2000000.00",
+  "requested_amount": "2000000.00",
+  "requested_term_months": 24,
+  "industry_code": "62.01",
+  "existing_monthly_debt": null,
+  "financial_periods": [],
+  "assets": []
+}

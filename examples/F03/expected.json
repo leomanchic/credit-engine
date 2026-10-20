@@ -1,0 +1,18 @@
+{
+  "basis": "The 200000 monthly net flow already includes 120000 net IP income; no separate income is added from the asset card.",
+  "recommendation": "OFFERED",
+  "financial_summary": {
+    "C": "200000.00"
+  },
+  "first_offer": {
+    "amount": "2000000.00",
+    "term_months": 24,
+    "score_total": 90
+  },
+  "asset_results_contains": [
+    {
+      "asset_id": "synthetic-asset-001",
+      "accepted_value": null
+    }
+  ]
+}

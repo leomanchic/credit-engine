@@ -1,0 +1,134 @@
+{
+  "schema_version": "2.0",
+  "policy_version": "test-zero-rate-1",
+  "calculation_version": "2.0.0",
+  "currency": "RUB",
+  "products": [
+    {
+      "product_id": "WORKING_CAPITAL",
+      "purpose": "WORKING_CAPITAL",
+      "min_amount": "100000.00",
+      "max_amount": "3000000.00",
+      "terms_months": [
+        6,
+        12,
+        18,
+        24
+      ],
+      "annual_rate": "0",
+      "min_dscr": "1.30",
+      "auto_score_min": 80,
+      "collateral_required": false,
+      "coverage_ratio": "1.00",
+      "amount_step": "10000.00",
+      "max_offers": 3
+    },
+    {
+      "product_id": "EQUIPMENT",
+      "purpose": "EQUIPMENT_PURCHASE",
+      "min_amount": "300000.00",
+      "max_amount": "5000000.00",
+      "terms_months": [
+        12,
+        24,
+        36
+      ],
+      "annual_rate": "0",
+      "min_dscr": "1.30",
+      "auto_score_min": 80,
+      "collateral_required": true,
+      "coverage_ratio": "1.00",
+      "amount_step": "10000.00",
+      "max_offers": 3
+    }
+  ],
+  "scoring": {
+    "payment_bands": [
+      {
+        "min_dscr": null,
+        "points": 0
+      },
+      {
+        "min_dscr": "1.10",
+        "points": 15
+      },
+      {
+        "min_dscr": "1.30",
+        "points": 30
+      },
+      {
+        "min_dscr": "1.50",
+        "points": 40
+      }
+    ],
+    "history_no_history_points": 15,
+    "history_bands": [
+      {
+        "max_days": 0,
+        "points": 25
+      },
+      {
+        "max_days": 30,
+        "points": 10
+      },
+      {
+        "max_days": null,
+        "points": 0
+      }
+    ],
+    "stability_bands": [
+      {
+        "min_months": 0,
+        "points": 0
+      },
+      {
+        "min_months": 7,
+        "points": 15
+      },
+      {
+        "min_months": 10,
+        "points": 25
+      }
+    ],
+    "tenure_bands": [
+      {
+        "min_months": 12,
+        "points": 5
+      },
+      {
+        "min_months": 24,
+        "points": 10
+      }
+    ],
+    "review_score_min": 50,
+    "minimum_history_months": 12
+  },
+  "collateral": {
+    "market_haircuts": [
+      {
+        "asset_type": "VEHICLE",
+        "haircut": "0.35"
+      },
+      {
+        "asset_type": "REAL_ESTATE",
+        "haircut": "0.35"
+      },
+      {
+        "asset_type": "EQUIPMENT",
+        "haircut": "0.50"
+      }
+    ],
+    "manual_recovery_types": [
+      "IP_RIGHT"
+    ],
+    "max_valuation_age_days": 180,
+    "allow_junior_lien": true
+  },
+  "rounding": {
+    "precision": 50,
+    "money_places": 2,
+    "dscr_places": 6,
+    "payment_mode": "ROUND_HALF_UP",
+    "limit_mode": "ROUND_FLOOR"
+  }
+}
